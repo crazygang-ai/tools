@@ -181,6 +181,20 @@
     "addHeader": "Add header",
     "command": "Generated command"
   },
+  "ascii-art": {
+    "title": "ASCII Art",
+    "desc": "Render text as figlet-style ASCII art. Copy as text or export PNG.",
+    "input": "Text",
+    "output": "Preview",
+    "placeholder": "Type something",
+    "fontLabel": "Font",
+    "themeLabel": "Background",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeTransparent": "Transparent",
+    "copyImage": "Copy image",
+    "downloadPng": "Download PNG"
+  },
   "git-cheatsheet": {
     "title": "Git Cheatsheet",
     "desc": "Quick reference for the most common Git commands.",

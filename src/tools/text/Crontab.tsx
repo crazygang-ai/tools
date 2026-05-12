@@ -3,14 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/Input';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { FieldHeader } from '@/components/ui/FieldHeader';
-import { stringCodec, useUrlState } from '@/lib/useUrlState';
+import { useLocalState } from '@/lib/useLocalState';
 import { humanize, nextRuns } from './cron.lib';
-
-const exprCodec = stringCodec('*/15 * * * *');
 
 export default function Crontab() {
   const { t } = useTranslation();
-  const [expr, setExpr] = useUrlState('expr', exprCodec);
+  const [expr, setExpr] = useLocalState('crontab.expr', '*/15 * * * *');
 
   const { error, runs, label } = useMemo(() => {
     try {

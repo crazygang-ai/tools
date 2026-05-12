@@ -3,14 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/Input';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { FieldHeader } from '@/components/ui/FieldHeader';
-import { stringCodec, useUrlState } from '@/lib/useUrlState';
+import { useLocalState } from '@/lib/useLocalState';
 import { fmtHex, fmtHsl, fmtHsv, fmtRgb, parseColor } from './color.lib';
-
-const colorCodec = stringCodec('#aa3bff');
 
 export default function ColorConvert() {
   const { t } = useTranslation();
-  const [input, setInput] = useUrlState('c', colorCodec);
+  const [input, setInput] = useLocalState('color.input', '#aa3bff');
   const c = useMemo(() => parseColor(input), [input]);
 
   return (

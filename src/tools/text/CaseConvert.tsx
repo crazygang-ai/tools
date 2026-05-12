@@ -3,7 +3,7 @@ import { Textarea } from '@/components/ui/Input';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { Button } from '@/components/ui/Button';
 import { FieldHeader } from '@/components/ui/FieldHeader';
-import { stringCodec, useUrlState } from '@/lib/useUrlState';
+import { useLocalState } from '@/lib/useLocalState';
 import { cases, type CaseId } from './case.lib';
 
 const ORDER: CaseId[] = [
@@ -18,11 +18,9 @@ const ORDER: CaseId[] = [
   'lower',
 ];
 
-const inputCodec = stringCodec('hello world dev tools');
-
 export default function CaseConvert() {
   const { t } = useTranslation();
-  const [input, setInput] = useUrlState('s', inputCodec);
+  const [input, setInput] = useLocalState('case.input', 'hello world dev tools');
 
   return (
     <div className="space-y-4">

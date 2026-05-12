@@ -23,6 +23,7 @@ import {
   Server,
   Lightbulb,
   HardDrive,
+  Type,
 } from 'lucide-react';
 import type { ToolMeta } from '@/types';
 
@@ -54,6 +55,7 @@ const ColorConvert = lazy(() => import('@/tools/text/ColorConvert'));
 const TextStats = lazy(() => import('@/tools/text/TextStats'));
 const DateTime = lazy(() => import('@/tools/text/DateTime'));
 const CurlBuilder = lazy(() => import('@/tools/text/CurlBuilder'));
+const AsciiArt = lazy(() => import('@/tools/text/AsciiArt'));
 
 // Cheatsheets
 const GitCheatsheet = lazy(() => import('@/tools/cheatsheet/GitCheatsheet'));
@@ -206,6 +208,14 @@ export const TOOLS: ToolMeta[] = [
     icon: Terminal,
     component: CurlBuilder,
     keywords: ['curl', 'http', 'request'],
+  },
+  {
+    slug: 'ascii-art',
+    category: 'text',
+    i18nKey: 'ascii-art',
+    icon: Type,
+    component: AsciiArt,
+    keywords: ['ascii', 'art', 'figlet', 'banner', 'text', '艺术字'],
   },
 
   // ========== Cheatsheet (6) ==========

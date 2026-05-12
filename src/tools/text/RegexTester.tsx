@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input, Textarea } from '@/components/ui/Input';
 import { FieldHeader } from '@/components/ui/FieldHeader';
-import { stringCodec, useUrlState } from '@/lib/useUrlState';
+import { useLocalState } from '@/lib/useLocalState';
 
 const FLAGS = ['g', 'i', 'm', 's', 'u', 'y'] as const;
 
@@ -12,17 +12,14 @@ interface Match {
   groups: string[];
 }
 
-const patternCodec = stringCodec('\\b\\w+@\\w+\\.\\w+\\b');
-const flagsCodec = stringCodec('gi');
-const textCodec = stringCodec(
-  'Reach us at hello@example.com or support@example.org for help.',
-);
-
 export default function RegexTester() {
   const { t } = useTranslation();
-  const [pattern, setPattern] = useUrlState('p', patternCodec);
-  const [flags, setFlags] = useUrlState('f', flagsCodec);
-  const [text, setText] = useUrlState('t', textCodec);
+  const [pattern, setPattern] = useLocalState('regex.pattern', '\\b\\w+@\\w+\\.\\w+\\b');
+  const [flags, setFlags] = useLocalState('regex.flags', 'gi');
+  const [text, setText] = useLocalState(
+    'regex.text',
+    'Reach us at hello@example.com or support@example.org for help.',
+  );
 
   const result = useMemo(() => {
     if (!pattern) return { ok: true as const, matches: [] as Match[] };

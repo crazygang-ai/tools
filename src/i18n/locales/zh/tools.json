@@ -181,6 +181,34 @@
     "addHeader": "添加 Header",
     "command": "生成的命令"
   },
+  "ascii-art": {
+    "title": "ASCII Art 生成",
+    "desc": "把文字渲染成 figlet 风格的 ASCII 艺术字，支持复制文本或导出 PNG。",
+    "input": "文字",
+    "output": "预览",
+    "placeholder": "输入文字",
+    "fontLabel": "字体",
+    "themeLabel": "底色",
+    "themeLight": "亮色",
+    "themeDark": "暗色",
+    "themeTransparent": "透明",
+    "copyImage": "复制图片",
+    "downloadPng": "下载 PNG"
+  },
+  "ascii-art": {
+    "title": "ASCII Art 生成",
+    "desc": "把文字渲染成 figlet 风格的 ASCII 艺术字，支持复制文本或导出 PNG。",
+    "input": "文字",
+    "output": "预览",
+    "placeholder": "输入文字",
+    "fontLabel": "字体",
+    "themeLabel": "底色",
+    "themeLight": "亮色",
+    "themeDark": "暗色",
+    "themeTransparent": "透明",
+    "copyImage": "复制图片",
+    "downloadPng": "下载 PNG"
+  },
   "git-cheatsheet": {
     "title": "Git 速查表",
     "desc": "常用 Git 命令速查。",
