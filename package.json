@@ -1,5 +1,5 @@
 {
-  "name": "devtools-cafe",
+  "name": "tools",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,13 +13,11 @@
     "format": "prettier -w \"src/**/*.{ts,tsx,css,json}\""
   },
   "dependencies": {
-    "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "fast-xml-parser": "^5.7.3",
     "i18next": "^26.1.0",
     "i18next-browser-languagedetector": "^8.2.1",
-    "js-beautify": "^1.15.4",
     "js-yaml": "^4.1.1",
     "lucide-react": "^1.14.0",
     "papaparse": "^5.5.3",
@@ -29,18 +27,14 @@
     "react-i18next": "^17.0.7",
     "react-router-dom": "^7.15.0",
     "smol-toml": "^1.6.1",
-    "sql-formatter": "^15.7.3",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@types/dompurify": "^3.2.0",
-    "@types/js-beautify": "^1.14.3",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.12.3",
-    "@types/pako": "^2.0.4",
     "@types/papaparse": "^5.5.2",
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19.2.14",

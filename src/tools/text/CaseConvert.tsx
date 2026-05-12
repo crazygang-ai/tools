@@ -18,7 +18,7 @@ const ORDER: CaseId[] = [
   'lower',
 ];
 
-const inputCodec = stringCodec('hello world devtools cafe');
+const inputCodec = stringCodec('hello world dev tools');
 
 export default function CaseConvert() {
   const { t } = useTranslation();

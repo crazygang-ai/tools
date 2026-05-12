@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "DevTools Cafe",
-    "tagline": "60+ free online developer tools",
+    "title": "Tools",
+    "tagline": "Developer tools that run locally",
     "description": "All tools run locally in your browser. No data is sent to servers."
   },
   "nav": {
@@ -33,11 +33,11 @@
     "cheatsheet": "Cheatsheets"
   },
   "categoryDesc": {
-    "security": "Encryption, hashing, JWT, Base64 and more.",
-    "image": "QR code, compression, favicons and image utilities.",
-    "format": "Convert and format JSON, YAML, XML, CSV and more.",
+    "security": "Base64, URL encoding, password strength.",
+    "image": "QR code, favicon and image format conversion.",
+    "format": "Format JSON, diff, convert to YAML/XML/TOML/CSV, generate Go structs.",
     "text": "Regex, case, encoding, stats and text manipulation.",
-    "cheatsheet": "Quick references for Git, Linux, Docker and more."
+    "cheatsheet": "Quick references for Git, SSH, Vim and more."
   },
   "home": {
     "heroTitle": "Developer tools that run locally",
@@ -74,7 +74,7 @@
     "notFoundDesc": "The page you visited does not exist or is not implemented yet."
   },
   "footer": {
-    "tagline": "A local-first developer toolbox, inspired by devtoolcafe.com.",
-    "year": "© {{year}} DevTools Cafe"
+    "tagline": "A local-first developer toolbox.",
+    "year": "© {{year}} Tools"
   }
 }

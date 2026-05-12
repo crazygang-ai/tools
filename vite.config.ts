@@ -12,9 +12,9 @@ export default defineConfig({
       devOptions: { enabled: false },
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'DevTools Cafe',
-        short_name: 'DevTools',
-        description: '50+ free online developer tools, all running locally in your browser.',
+        name: 'Tools',
+        short_name: 'Tools',
+        description: 'Free developer tools running locally in your browser.',
         theme_color: '#0b0b0d',
         background_color: '#0b0b0d',
         display: 'standalone',

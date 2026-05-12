@@ -9,14 +9,14 @@
     <meta name="color-scheme" content="light dark" />
     <meta
       name="description"
-      content="50+ free online developer tools, all running locally in your browser."
+      content="Free developer tools running locally in your browser."
     />
-    <title>DevTools Cafe</title>
+    <title>Tools</title>
     <script>
       // Apply persisted theme before first paint to avoid FOUC.
       (function () {
         try {
-          var stored = localStorage.getItem('devtools-cafe.theme');
+          var stored = localStorage.getItem('tools.theme');
           var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
           var resolved = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
           var root = document.documentElement;

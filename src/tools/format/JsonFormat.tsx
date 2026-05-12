@@ -9,7 +9,7 @@ import { FieldHeader } from '@/components/ui/FieldHeader';
 type Mode = 'format' | 'minify';
 type Indent = 2 | 4 | 'tab';
 
-const SAMPLE = `{"name":"DevTools Cafe","tools":60,"local":true,"categories":["security","format","text"]}`;
+const SAMPLE = `{"name":"Tools","tools":23,"local":true,"categories":["security","format","text"]}`;
 
 export default function JsonFormat() {
   const { t } = useTranslation();

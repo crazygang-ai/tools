@@ -10,7 +10,7 @@ type Level = 'L' | 'M' | 'Q' | 'H';
 
 export default function QrCodeTool() {
   const { t } = useTranslation();
-  const [content, setContent] = useState('https://devtoolcafe.com');
+  const [content, setContent] = useState('https://example.com');
   const [size, setSize] = useState(256);
   const [level, setLevel] = useState<Level>('M');
   const canvasRef = useRef<HTMLCanvasElement>(null);

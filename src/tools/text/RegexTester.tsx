@@ -15,7 +15,7 @@ interface Match {
 const patternCodec = stringCodec('\\b\\w+@\\w+\\.\\w+\\b');
 const flagsCodec = stringCodec('gi');
 const textCodec = stringCodec(
-  'Reach us at hello@devtoolcafe.com or support@example.org for help.',
+  'Reach us at hello@example.com or support@example.org for help.',
 );
 
 export default function RegexTester() {

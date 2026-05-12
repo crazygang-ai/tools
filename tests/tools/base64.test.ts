@@ -6,7 +6,7 @@ describe('base64', () => {
     expect(decodeBase64(encodeBase64('Hello, world'))).toBe('Hello, world');
   });
   it('roundtrips UTF-8 (CJK + emoji)', () => {
-    const s = '你好，世界 🌍 — DevTools Cafe';
+    const s = '你好，世界 🌍 — local tools';
     expect(decodeBase64(encodeBase64(s))).toBe(s);
   });
   it('handles empty string', () => {

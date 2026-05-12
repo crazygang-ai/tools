@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "DevTools Cafe",
-    "tagline": "60+ 免费在线开发者工具",
+    "title": "Tools",
+    "tagline": "本地运行的开发者工具集",
     "description": "全部工具在浏览器本地运行，零数据上传服务器。"
   },
   "nav": {
@@ -33,11 +33,11 @@
     "cheatsheet": "速查表"
   },
   "categoryDesc": {
-    "security": "加密、哈希、JWT、Base64 等安全相关工具",
-    "image": "二维码、图片压缩、Favicon 等图像处理",
-    "format": "JSON、YAML、XML、CSV 等格式互转与格式化",
+    "security": "Base64、URL 编解码、密码强度等安全相关工具",
+    "image": "二维码、Favicon、图像格式转换",
+    "format": "JSON 格式化、Diff、互转、转 Go Struct",
     "text": "正则、大小写、编码、统计等文本处理",
-    "cheatsheet": "Git、Linux、Docker 等常用命令速查"
+    "cheatsheet": "Git、SSH、Vim 等常用命令速查"
   },
   "home": {
     "heroTitle": "本地运行的开发者工具集",
@@ -74,7 +74,7 @@
     "notFoundDesc": "你访问的页面不存在或尚未实现。"
   },
   "footer": {
-    "tagline": "本地运行的开发者工具站，向 devtoolcafe.com 致敬。",
-    "year": "© {{year}} DevTools Cafe"
+    "tagline": "本地运行的开发者工具集。",
+    "year": "© {{year}} Tools"
   }
 }

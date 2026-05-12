@@ -25,7 +25,7 @@ void i18n
     interpolation: { escapeValue: false },
     detection: {
       order: ['localStorage', 'navigator'],
-      lookupLocalStorage: 'devtools-cafe.lang',
+      lookupLocalStorage: 'tools.lang',
       caches: ['localStorage'],
     },
   });

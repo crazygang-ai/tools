@@ -10,4 +10,4 @@ export interface ThemeContextValue {
 
 export const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-export const THEME_STORAGE_KEY = 'devtools-cafe.theme';
+export const THEME_STORAGE_KEY = 'tools.theme';

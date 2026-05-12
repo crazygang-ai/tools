@@ -1,8 +1,8 @@
-# DevTools Cafe
+# Tools
 
-本地复刻版的 [devtoolcafe.com](https://devtoolcafe.com)：37 个浏览器端开发者工具，零数据上送。
+23 个浏览器端开发者工具，零数据上送。
 
-技术栈：**Vite + React 19 + TypeScript + Tailwind CSS + react-router + i18next + cmdk + vite-plugin-pwa**。
+技术栈：**Vite + React 19 + TypeScript + Tailwind CSS + react-router-dom + i18next + cmdk + vite-plugin-pwa**。
 
 ## 快速开始
 
@@ -14,13 +14,13 @@ pnpm build        # 类型检查 + 生产构建
 pnpm preview      # 预览构建产物（含 Service Worker）
 ```
 
-## 工具清单（37 个）
+## 工具清单（23 个）
 
 | 分类 | 工具 |
 |---|---|
-| Security (10) | Base64 编/解码、JWT 解码、文本哈希 (MD5/SHA-x)、Bcrypt、AES-GCM 加密/解密、HMAC、RSA 密钥对、密码强度评估、URL 编/解码、Token 生成 |
+| Security (3) | Base64 编/解码、密码强度评估、URL 编/解码 |
 | Image (3) | 二维码生成、Favicon 多尺寸生成、图像格式转换 (PNG/JPG/WebP) |
-| Format (11) | JSON 格式化/校验、JSON↔YAML、JSON↔XML、JSON↔TOML、JSON↔CSV、JSON Diff、HTML 格式化、CSS 格式化、JS 格式化、SQL 格式化（多方言）、JSON→Go Struct |
+| Format (4) | JSON 格式化/校验、JSON ↔ YAML/XML/TOML/CSV 互转、JSON Diff、JSON → Go Struct |
 | Text (7) | 大小写转换、正则测试器、Crontab 生成器、颜色转换 (HEX/RGB/HSL/HSV)、文本统计、日期时间转换、cURL 构建器 |
 | Cheatsheet (6) | Git、SSH、Vim、HTTP 状态码、SQL、tar |
 
@@ -38,11 +38,11 @@ pnpm preview      # 预览构建产物（含 Service Worker）
 src/
   components/      # 复用组件（Layout / UI / CommandPalette / ToolCard ...）
   i18n/            # i18next 配置 + zh/en 语言包
-  lib/             # 通用工具：cn / theme / copy
+  lib/             # 通用工具：cn / theme / copy / useTheme / useDocumentTitle / useUrlState
   pages/           # Home / CategoryPage / ToolDetailPage / NotFound
   tools/
     registry.ts    # 工具元数据单一数据源
-    categories.ts  # 6 大分类常量
+    categories.ts  # 5 大分类常量
     security/ image/ format/ text/ cheatsheet/  # 各类工具实现
 tests/tools/       # 纯函数 Vitest 单测
 ```
@@ -60,13 +60,9 @@ tests/tools/       # 纯函数 Vitest 单测
 
 ## 验证清单
 
-- `pnpm test` — 43 个用例全过
-- `pnpm build` — 无类型错误；dist 总大小约 1 MB（gzip ≈ 250 KB），按工具 lazy 拆 chunk
+- `pnpm test` — 全部用例通过
+- `pnpm build` — 无类型错误，按工具 lazy 拆 chunk
 - `pnpm preview` — DevTools → Application 面板可看到 service worker，断网后页面仍能访问
-- 首页：6 大类卡片，38 个工具
+- 首页：5 大类卡片，23 个工具
 - 切主题、切语言：刷新后保持
 - ⌘K：搜 `json` / `git` / `base64` 应能命中
-
-## 致谢
-
-感谢 [devtoolcafe.com](https://devtoolcafe.com) 提供的灵感。本项目是出于学习目的的本地复刻，UI 风格与工具结构借鉴自原站，但代码完全独立编写。

@@ -9,58 +9,6 @@
     "modeDecode": "解码",
     "invalid": "Base64 解码失败：内容不合法。"
   },
-  "jwt-decode": {
-    "title": "JWT 解码",
-    "desc": "解析 JSON Web Token 的 header 与 payload，不验证签名。",
-    "tokenLabel": "JWT Token",
-    "header": "Header",
-    "payload": "Payload",
-    "signature": "Signature",
-    "invalid": "无法解析：JWT 必须由三段以 . 分隔的 base64url 组成。"
-  },
-  "hash-text": {
-    "title": "文本哈希",
-    "desc": "MD5 / SHA-1 / SHA-256 / SHA-384 / SHA-512，浏览器原生 SubtleCrypto。",
-    "input": "输入文本",
-    "algo": "算法"
-  },
-  "bcrypt": {
-    "title": "Bcrypt",
-    "desc": "Bcrypt 密码哈希与校验。",
-    "modeHash": "哈希",
-    "modeVerify": "校验",
-    "password": "密码",
-    "rounds": "Rounds",
-    "hash": "Hash",
-    "match": "✓ 匹配",
-    "noMatch": "✗ 不匹配"
-  },
-  "encrypt-decrypt": {
-    "title": "加密 / 解密",
-    "desc": "AES-GCM 对称加密，使用 WebCrypto，本地运行。",
-    "modeEncrypt": "加密",
-    "modeDecrypt": "解密",
-    "password": "口令",
-    "plaintext": "明文",
-    "ciphertext": "密文（base64）",
-    "invalid": "解密失败：密文或口令错误"
-  },
-  "hmac": {
-    "title": "HMAC",
-    "desc": "用 SHA-1/256/384/512 生成 HMAC 签名。",
-    "key": "密钥",
-    "message": "消息",
-    "algo": "算法",
-    "encoding": "输出编码"
-  },
-  "rsa-keypair": {
-    "title": "RSA 密钥对",
-    "desc": "生成 RSA 公私钥对（PKCS#8 / SPKI，PEM 格式）。",
-    "size": "密钥长度",
-    "publicKey": "公钥",
-    "privateKey": "私钥",
-    "generate": "生成"
-  },
   "password-strength": {
     "title": "密码强度",
     "desc": "估算密码强度、熵值与暴力破解时间。",
@@ -95,19 +43,6 @@
     "component": "encodeURIComponent (默认)",
     "uri": "encodeURI"
   },
-  "token-gen": {
-    "title": "Token 生成",
-    "desc": "生成各类访问令牌：API Key、Hex、Base64URL、UUID 等。",
-    "type": "类型",
-    "length": "长度",
-    "count": "数量",
-    "kinds": {
-      "hex": "Hex",
-      "base64url": "Base64URL",
-      "alnum": "字母数字",
-      "uuid": "UUID v4"
-    }
-  },
   "qr-code": {
     "title": "二维码生成",
     "desc": "把文本或链接生成可下载的二维码。",
@@ -140,37 +75,18 @@
     "modeMinify": "压缩",
     "invalid": "JSON 解析失败"
   },
-  "json-yaml": {
-    "title": "JSON ↔ YAML",
-    "desc": "在 JSON 与 YAML 之间互转。",
-    "json": "JSON",
-    "yaml": "YAML",
+  "json-convert": {
+    "title": "JSON 互转",
+    "desc": "在 JSON 与 YAML / XML / TOML / CSV 之间互转。",
+    "target": "目标格式",
+    "targets": {
+      "yaml": "YAML",
+      "xml": "XML",
+      "toml": "TOML",
+      "csv": "CSV"
+    },
     "invalidJson": "JSON 解析失败",
-    "invalidYaml": "YAML 解析失败"
-  },
-  "json-xml": {
-    "title": "JSON ↔ XML",
-    "desc": "在 JSON 与 XML 之间互转。",
-    "json": "JSON",
-    "xml": "XML",
-    "invalidJson": "JSON 解析失败",
-    "invalidXml": "XML 解析失败"
-  },
-  "json-toml": {
-    "title": "JSON ↔ TOML",
-    "desc": "在 JSON 与 TOML 之间互转。",
-    "json": "JSON",
-    "toml": "TOML",
-    "invalidJson": "JSON 解析失败",
-    "invalidToml": "TOML 解析失败"
-  },
-  "json-csv": {
-    "title": "JSON ↔ CSV",
-    "desc": "在 JSON 数组与 CSV 之间互转。",
-    "json": "JSON",
-    "csv": "CSV",
-    "invalidJson": "JSON 解析失败（应为对象数组）",
-    "invalidCsv": "CSV 解析失败"
+    "invalidTarget": "{{target}} 解析失败"
   },
   "json-diff": {
     "title": "JSON Diff",
@@ -180,37 +96,6 @@
     "summary": "+{{add}} -{{del}} ~{{mod}}",
     "noDiff": "完全一致",
     "invalid": "JSON 解析失败"
-  },
-  "html-format": {
-    "title": "HTML 格式化",
-    "desc": "HTML 美化与压缩。",
-    "modeFormat": "格式化",
-    "modeMinify": "压缩",
-    "indent": "缩进",
-    "placeholder": "<html>...</html>"
-  },
-  "css-format": {
-    "title": "CSS 格式化",
-    "desc": "CSS 美化与压缩。",
-    "modeFormat": "格式化",
-    "modeMinify": "压缩",
-    "indent": "缩进",
-    "placeholder": "body { color: red; }"
-  },
-  "js-format": {
-    "title": "JavaScript 格式化",
-    "desc": "JavaScript / TypeScript 代码美化。",
-    "modeFormat": "格式化",
-    "modeMinify": "压缩",
-    "indent": "缩进",
-    "placeholder": "function hi() { return 1; }"
-  },
-  "sql-format": {
-    "title": "SQL 格式化",
-    "desc": "美化 SQL，支持多种方言。",
-    "dialect": "方言",
-    "indent": "缩进",
-    "uppercase": "关键字大写"
   },
   "json-to-go": {
     "title": "JSON → Go Struct",
