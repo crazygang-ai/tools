@@ -1,0 +1,363 @@
+{
+  "base64": {
+    "title": "Base64 Encode / Decode",
+    "desc": "Convert between UTF-8 text and Base64.",
+    "inputText": "Input text",
+    "encoded": "Base64",
+    "decoded": "Decoded",
+    "modeEncode": "Encode",
+    "modeDecode": "Decode",
+    "invalid": "Failed to decode: input is not valid Base64."
+  },
+  "jwt-decode": {
+    "title": "JWT Decoder",
+    "desc": "Decode header and payload of a JSON Web Token. Signature is not verified.",
+    "tokenLabel": "JWT Token",
+    "header": "Header",
+    "payload": "Payload",
+    "signature": "Signature",
+    "invalid": "Cannot parse: a JWT must have three base64url segments separated by dots."
+  },
+  "hash-text": {
+    "title": "Hash Text",
+    "desc": "MD5 / SHA-1 / SHA-256 / SHA-384 / SHA-512 via SubtleCrypto.",
+    "input": "Input text",
+    "algo": "Algorithm"
+  },
+  "bcrypt": {
+    "title": "Bcrypt",
+    "desc": "Bcrypt password hashing and verification.",
+    "modeHash": "Hash",
+    "modeVerify": "Verify",
+    "password": "Password",
+    "rounds": "Rounds",
+    "hash": "Hash",
+    "match": "✓ Match",
+    "noMatch": "✗ No match"
+  },
+  "encrypt-decrypt": {
+    "title": "Encrypt / Decrypt",
+    "desc": "AES-GCM symmetric encryption powered by WebCrypto. Runs locally.",
+    "modeEncrypt": "Encrypt",
+    "modeDecrypt": "Decrypt",
+    "password": "Passphrase",
+    "plaintext": "Plaintext",
+    "ciphertext": "Ciphertext (base64)",
+    "invalid": "Decryption failed: wrong ciphertext or passphrase."
+  },
+  "hmac": {
+    "title": "HMAC",
+    "desc": "Generate HMAC signatures with SHA-1 / 256 / 384 / 512.",
+    "key": "Key",
+    "message": "Message",
+    "algo": "Algorithm",
+    "encoding": "Output encoding"
+  },
+  "rsa-keypair": {
+    "title": "RSA Keypair",
+    "desc": "Generate RSA public/private key pairs (PKCS#8 / SPKI, PEM format).",
+    "size": "Key size",
+    "publicKey": "Public key",
+    "privateKey": "Private key",
+    "generate": "Generate"
+  },
+  "password-strength": {
+    "title": "Password Strength",
+    "desc": "Estimate password strength, entropy and brute-force time.",
+    "password": "Password",
+    "entropy": "Entropy (bits)",
+    "crackTime": "Crack time estimate",
+    "level": "Strength",
+    "levels": {
+      "veryWeak": "Very weak",
+      "weak": "Weak",
+      "fair": "Fair",
+      "strong": "Strong",
+      "veryStrong": "Very strong"
+    },
+    "tips": "Tips",
+    "tipList": {
+      "len": "At least 12 characters",
+      "upper": "Add uppercase letters",
+      "lower": "Add lowercase letters",
+      "digit": "Add digits",
+      "symbol": "Add symbols",
+      "noRepeat": "Avoid repeated or sequential characters"
+    }
+  },
+  "url-encode": {
+    "title": "URL Encode / Decode",
+    "desc": "URL percent-encoding utilities.",
+    "modeEncode": "Encode",
+    "modeDecode": "Decode",
+    "input": "Input",
+    "output": "Output",
+    "component": "encodeURIComponent (default)",
+    "uri": "encodeURI"
+  },
+  "token-gen": {
+    "title": "Token Generator",
+    "desc": "Generate access tokens: API keys, hex, base64url, UUIDs and more.",
+    "type": "Type",
+    "length": "Length",
+    "count": "Count",
+    "kinds": {
+      "hex": "Hex",
+      "base64url": "Base64URL",
+      "alnum": "Alphanumeric",
+      "uuid": "UUID v4"
+    }
+  },
+  "qr-code": {
+    "title": "QR Code Generator",
+    "desc": "Turn any text or URL into a downloadable QR code.",
+    "content": "Content",
+    "size": "Size",
+    "errorLevel": "Error correction",
+    "downloadPng": "Download PNG"
+  },
+  "favicon": {
+    "title": "Favicon Generator",
+    "desc": "Drop an image and generate favicons in multiple sizes.",
+    "drop": "Drop an image here, or click to choose",
+    "sizes": "Sizes",
+    "downloadAll": "Download all PNGs"
+  },
+  "image-convert": {
+    "title": "Image Converter",
+    "desc": "Convert between PNG / JPG / WebP. All processing is local.",
+    "drop": "Drop an image here, or click to choose",
+    "format": "Target format",
+    "quality": "Quality",
+    "original": "Original",
+    "converted": "Converted"
+  },
+  "json-format": {
+    "title": "JSON Formatter",
+    "desc": "Format, minify and validate JSON.",
+    "indent": "Indent",
+    "modeFormat": "Format",
+    "modeMinify": "Minify",
+    "invalid": "Invalid JSON"
+  },
+  "json-yaml": {
+    "title": "JSON ↔ YAML",
+    "desc": "Convert between JSON and YAML.",
+    "json": "JSON",
+    "yaml": "YAML",
+    "invalidJson": "Invalid JSON",
+    "invalidYaml": "Invalid YAML"
+  },
+  "json-xml": {
+    "title": "JSON ↔ XML",
+    "desc": "Convert between JSON and XML.",
+    "json": "JSON",
+    "xml": "XML",
+    "invalidJson": "Invalid JSON",
+    "invalidXml": "Invalid XML"
+  },
+  "json-toml": {
+    "title": "JSON ↔ TOML",
+    "desc": "Convert between JSON and TOML.",
+    "json": "JSON",
+    "toml": "TOML",
+    "invalidJson": "Invalid JSON",
+    "invalidToml": "Invalid TOML"
+  },
+  "json-csv": {
+    "title": "JSON ↔ CSV",
+    "desc": "Convert between JSON arrays and CSV.",
+    "json": "JSON",
+    "csv": "CSV",
+    "invalidJson": "Invalid JSON (array of objects expected)",
+    "invalidCsv": "Invalid CSV"
+  },
+  "json-diff": {
+    "title": "JSON Diff",
+    "desc": "Compare two JSON documents and show the differences.",
+    "left": "Original",
+    "right": "Compared",
+    "summary": "+{{add}} -{{del}} ~{{mod}}",
+    "noDiff": "Identical",
+    "invalid": "Invalid JSON"
+  },
+  "html-format": {
+    "title": "HTML Formatter",
+    "desc": "Format and minify HTML.",
+    "modeFormat": "Format",
+    "modeMinify": "Minify",
+    "indent": "Indent",
+    "placeholder": "<html>...</html>"
+  },
+  "css-format": {
+    "title": "CSS Formatter",
+    "desc": "Format and minify CSS.",
+    "modeFormat": "Format",
+    "modeMinify": "Minify",
+    "indent": "Indent",
+    "placeholder": "body { color: red; }"
+  },
+  "js-format": {
+    "title": "JavaScript Formatter",
+    "desc": "Beautify JavaScript / TypeScript code.",
+    "modeFormat": "Format",
+    "modeMinify": "Minify",
+    "indent": "Indent",
+    "placeholder": "function hi() { return 1; }"
+  },
+  "sql-format": {
+    "title": "SQL Formatter",
+    "desc": "Beautify SQL with multi-dialect support.",
+    "dialect": "Dialect",
+    "indent": "Indent",
+    "uppercase": "Uppercase keywords"
+  },
+  "json-to-go": {
+    "title": "JSON → Go Struct",
+    "desc": "Generate Go structs from a JSON document.",
+    "rootName": "Root type name",
+    "invalid": "Invalid JSON"
+  },
+  "case-convert": {
+    "title": "Case Converter",
+    "desc": "Convert between camelCase, snake_case, kebab-case and more.",
+    "cases": {
+      "camel": "camelCase",
+      "pascal": "PascalCase",
+      "snake": "snake_case",
+      "kebab": "kebab-case",
+      "constant": "CONSTANT_CASE",
+      "title": "Title Case",
+      "sentence": "Sentence case",
+      "upper": "UPPER CASE",
+      "lower": "lower case"
+    }
+  },
+  "regex-tester": {
+    "title": "Regex Tester",
+    "desc": "Test regular expressions and visualize matches in real time.",
+    "pattern": "Pattern",
+    "flags": "Flags",
+    "testStr": "Test string",
+    "matches": "{{count}} matches",
+    "noMatches": "No matches",
+    "invalid": "Invalid regular expression"
+  },
+  "crontab": {
+    "title": "Crontab Generator",
+    "desc": "Compose and parse cron expressions, preview upcoming runs.",
+    "expression": "Expression",
+    "fields": {
+      "minute": "Minute",
+      "hour": "Hour",
+      "dom": "Day",
+      "month": "Month",
+      "dow": "Weekday"
+    },
+    "humanize": "Meaning",
+    "next": "Next 5 runs",
+    "invalid": "Invalid cron expression"
+  },
+  "color-convert": {
+    "title": "Color Converter",
+    "desc": "Convert between HEX / RGB / HSL / HSV.",
+    "input": "Input color",
+    "invalid": "Cannot parse color"
+  },
+  "text-stats": {
+    "title": "Text Stats",
+    "desc": "Char, word, line, byte and sentence counts.",
+    "input": "Input text",
+    "chars": "Characters (with spaces)",
+    "charsNoSpace": "Characters (no spaces)",
+    "words": "Words",
+    "lines": "Lines",
+    "sentences": "Sentences",
+    "bytes": "Bytes (UTF-8)"
+  },
+  "datetime": {
+    "title": "Date / Time Converter",
+    "desc": "Convert timestamps and date formats with timezone awareness.",
+    "now": "Now",
+    "unixSec": "Unix seconds",
+    "unixMs": "Unix ms",
+    "iso": "ISO 8601",
+    "local": "Local time",
+    "utc": "UTC",
+    "invalid": "Cannot parse date"
+  },
+  "curl-builder": {
+    "title": "cURL Builder",
+    "desc": "Compose cURL commands visually.",
+    "method": "Method",
+    "url": "URL",
+    "headers": "Headers",
+    "body": "Body",
+    "addHeader": "Add header",
+    "command": "Generated command"
+  },
+  "git-cheatsheet": {
+    "title": "Git Cheatsheet",
+    "desc": "Quick reference for the most common Git commands.",
+    "section": {
+      "basics": "Basics",
+      "branch": "Branches",
+      "remote": "Remotes",
+      "log": "Log & Diff",
+      "undo": "Undo"
+    }
+  },
+  "ssh-cheatsheet": {
+    "title": "SSH Cheatsheet",
+    "desc": "Common SSH commands.",
+    "section": {
+      "connect": "Connect",
+      "key": "Keys",
+      "transfer": "Transfer",
+      "config": "Config"
+    }
+  },
+  "vim-cheatsheet": {
+    "title": "Vim Cheatsheet",
+    "desc": "Common Vim shortcuts.",
+    "section": {
+      "mode": "Modes",
+      "move": "Movement",
+      "edit": "Editing",
+      "search": "Search & Replace",
+      "file": "Files & Windows"
+    }
+  },
+  "http-status": {
+    "title": "HTTP Status Codes",
+    "desc": "HTTP status code reference.",
+    "section": {
+      "1xx": "1xx Informational",
+      "2xx": "2xx Success",
+      "3xx": "3xx Redirection",
+      "4xx": "4xx Client Error",
+      "5xx": "5xx Server Error"
+    }
+  },
+  "sql-cheatsheet": {
+    "title": "SQL Cheatsheet",
+    "desc": "SQL syntax reference.",
+    "section": {
+      "ddl": "DDL",
+      "dml": "DML",
+      "query": "Queries",
+      "join": "JOIN",
+      "agg": "Aggregations / Window"
+    }
+  },
+  "tar-cheatsheet": {
+    "title": "tar Cheatsheet",
+    "desc": "Common tar commands.",
+    "section": {
+      "create": "Create",
+      "extract": "Extract",
+      "list": "List",
+      "advanced": "Advanced"
+    }
+  }
+}

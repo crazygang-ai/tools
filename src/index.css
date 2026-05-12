@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 252 252 253;
+    --fg: 17 17 19;
+    --muted: 244 244 246;
+    --muted-fg: 90 90 100;
+    --card: 255 255 255;
+    --card-fg: 17 17 19;
+    --border: 228 228 231;
+    --primary: 79 70 229;
+    --primary-fg: 255 255 255;
+    --accent: 124 58 237;
+    --accent-fg: 255 255 255;
+    --destructive: 220 38 38;
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: 11 11 13;
+    --fg: 240 240 244;
+    --muted: 28 28 32;
+    --muted-fg: 170 170 180;
+    --card: 21 21 25;
+    --card-fg: 240 240 244;
+    --border: 39 39 44;
+    --primary: 129 140 248;
+    --primary-fg: 17 17 19;
+    --accent: 167 139 250;
+    --accent-fg: 17 17 19;
+    --destructive: 248 113 113;
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss02';
+    text-rendering: optimizeLegibility;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* heading anchors clear sticky header */
+  h1,
+  h2,
+  h3 {
+    scroll-margin-top: 5rem;
+  }
+
+  ::selection {
+    @apply bg-primary/30;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-fg/50;
+  }
+
+  /* Default focus ring for any focusable element that doesn't define its own */
+  :where(a, button, [role='button'], input, select, textarea, summary):focus-visible {
+    outline: 2px solid rgb(var(--primary));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Reduce motion globally */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Skip link: hidden until focused */
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus-visible {
+    @apply not-sr-only fixed left-4 top-4 z-50 rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-fg shadow-lg;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-bg/80 backdrop-blur-md;
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  /* fluid full viewport height that adjusts to keyboards on mobile */
+  .h-dvh {
+    height: 100dvh;
+  }
+}

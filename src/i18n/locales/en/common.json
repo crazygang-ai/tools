@@ -1,0 +1,80 @@
+{
+  "site": {
+    "title": "DevTools Cafe",
+    "tagline": "60+ free online developer tools",
+    "description": "All tools run locally in your browser. No data is sent to servers."
+  },
+  "nav": {
+    "home": "Home",
+    "search": "Search tools…",
+    "openSearch": "Open search",
+    "toggleTheme": "Toggle theme",
+    "toggleLanguage": "Toggle language",
+    "github": "GitHub",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "primaryNav": "Primary",
+    "closeDialog": "Close dialog",
+    "loading": "Loading…",
+    "copied": "Copied to clipboard",
+    "copyEmpty": "Nothing to copy"
+  },
+  "categories": {
+    "security": "Security",
+    "image": "Image",
+    "format": "Format",
+    "text": "Text",
+    "cheatsheet": "Cheatsheets"
+  },
+  "categoryDesc": {
+    "security": "Encryption, hashing, JWT, Base64 and more.",
+    "image": "QR code, compression, favicons and image utilities.",
+    "format": "Convert and format JSON, YAML, XML, CSV and more.",
+    "text": "Regex, case, encoding, stats and text manipulation.",
+    "cheatsheet": "Quick references for Git, Linux, Docker and more."
+  },
+  "home": {
+    "heroTitle": "Developer tools that run locally",
+    "heroSubtitle": "No accounts, no uploads. Every tool runs entirely in your browser.",
+    "comingSoon": "Coming soon",
+    "localOnly": "100% local",
+    "statsLabel": "{{count}} or more local-first tools",
+    "toolCount": "{{count}} tools"
+  },
+  "actions": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "example": "Example",
+    "download": "Download",
+    "generate": "Generate",
+    "verify": "Verify",
+    "format": "Format",
+    "minify": "Minify",
+    "encode": "Encode",
+    "decode": "Decode"
+  },
+  "common": {
+    "input": "Input",
+    "output": "Output",
+    "options": "Options",
+    "result": "Result",
+    "error": "Error",
+    "empty": "Empty",
+    "backToHome": "Back to home",
+    "backToHomeShort": "Home",
+    "backToCategory": "Back to {{name}}",
+    "notFound": "Page not found",
+    "notFoundDesc": "The page you visited does not exist or is not implemented yet."
+  },
+  "footer": {
+    "tagline": "A local-first developer toolbox, inspired by devtoolcafe.com.",
+    "year": "© {{year}} DevTools Cafe"
+  }
+}

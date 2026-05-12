@@ -1,0 +1,363 @@
+{
+  "base64": {
+    "title": "Base64 编/解码",
+    "desc": "在 UTF-8 文本与 Base64 之间互相转换。",
+    "inputText": "输入文本",
+    "encoded": "Base64 结果",
+    "decoded": "解码结果",
+    "modeEncode": "编码",
+    "modeDecode": "解码",
+    "invalid": "Base64 解码失败：内容不合法。"
+  },
+  "jwt-decode": {
+    "title": "JWT 解码",
+    "desc": "解析 JSON Web Token 的 header 与 payload，不验证签名。",
+    "tokenLabel": "JWT Token",
+    "header": "Header",
+    "payload": "Payload",
+    "signature": "Signature",
+    "invalid": "无法解析：JWT 必须由三段以 . 分隔的 base64url 组成。"
+  },
+  "hash-text": {
+    "title": "文本哈希",
+    "desc": "MD5 / SHA-1 / SHA-256 / SHA-384 / SHA-512，浏览器原生 SubtleCrypto。",
+    "input": "输入文本",
+    "algo": "算法"
+  },
+  "bcrypt": {
+    "title": "Bcrypt",
+    "desc": "Bcrypt 密码哈希与校验。",
+    "modeHash": "哈希",
+    "modeVerify": "校验",
+    "password": "密码",
+    "rounds": "Rounds",
+    "hash": "Hash",
+    "match": "✓ 匹配",
+    "noMatch": "✗ 不匹配"
+  },
+  "encrypt-decrypt": {
+    "title": "加密 / 解密",
+    "desc": "AES-GCM 对称加密，使用 WebCrypto，本地运行。",
+    "modeEncrypt": "加密",
+    "modeDecrypt": "解密",
+    "password": "口令",
+    "plaintext": "明文",
+    "ciphertext": "密文（base64）",
+    "invalid": "解密失败：密文或口令错误"
+  },
+  "hmac": {
+    "title": "HMAC",
+    "desc": "用 SHA-1/256/384/512 生成 HMAC 签名。",
+    "key": "密钥",
+    "message": "消息",
+    "algo": "算法",
+    "encoding": "输出编码"
+  },
+  "rsa-keypair": {
+    "title": "RSA 密钥对",
+    "desc": "生成 RSA 公私钥对（PKCS#8 / SPKI，PEM 格式）。",
+    "size": "密钥长度",
+    "publicKey": "公钥",
+    "privateKey": "私钥",
+    "generate": "生成"
+  },
+  "password-strength": {
+    "title": "密码强度",
+    "desc": "估算密码强度、熵值与暴力破解时间。",
+    "password": "密码",
+    "entropy": "熵 (bits)",
+    "crackTime": "破解时间估计",
+    "level": "强度",
+    "levels": {
+      "veryWeak": "极弱",
+      "weak": "弱",
+      "fair": "一般",
+      "strong": "强",
+      "veryStrong": "极强"
+    },
+    "tips": "提示",
+    "tipList": {
+      "len": "长度至少 12 位",
+      "upper": "包含大写字母",
+      "lower": "包含小写字母",
+      "digit": "包含数字",
+      "symbol": "包含符号",
+      "noRepeat": "避免重复或连续字符"
+    }
+  },
+  "url-encode": {
+    "title": "URL 编/解码",
+    "desc": "URL 百分号编码与解码。",
+    "modeEncode": "编码",
+    "modeDecode": "解码",
+    "input": "输入",
+    "output": "输出",
+    "component": "encodeURIComponent (默认)",
+    "uri": "encodeURI"
+  },
+  "token-gen": {
+    "title": "Token 生成",
+    "desc": "生成各类访问令牌：API Key、Hex、Base64URL、UUID 等。",
+    "type": "类型",
+    "length": "长度",
+    "count": "数量",
+    "kinds": {
+      "hex": "Hex",
+      "base64url": "Base64URL",
+      "alnum": "字母数字",
+      "uuid": "UUID v4"
+    }
+  },
+  "qr-code": {
+    "title": "二维码生成",
+    "desc": "把文本或链接生成可下载的二维码。",
+    "content": "内容",
+    "size": "尺寸",
+    "errorLevel": "纠错等级",
+    "downloadPng": "下载 PNG"
+  },
+  "favicon": {
+    "title": "Favicon 生成",
+    "desc": "上传一张图片，一键生成多尺寸 favicon。",
+    "drop": "拖拽图片到此处，或点击选择",
+    "sizes": "尺寸",
+    "downloadAll": "下载全部 PNG"
+  },
+  "image-convert": {
+    "title": "图像格式转换",
+    "desc": "在 PNG / JPG / WebP 之间互转，全部在本地完成。",
+    "drop": "拖拽图片到此处，或点击选择",
+    "format": "目标格式",
+    "quality": "质量",
+    "original": "原图",
+    "converted": "转换后"
+  },
+  "json-format": {
+    "title": "JSON 格式化",
+    "desc": "格式化、压缩、校验 JSON。",
+    "indent": "缩进",
+    "modeFormat": "格式化",
+    "modeMinify": "压缩",
+    "invalid": "JSON 解析失败"
+  },
+  "json-yaml": {
+    "title": "JSON ↔ YAML",
+    "desc": "在 JSON 与 YAML 之间互转。",
+    "json": "JSON",
+    "yaml": "YAML",
+    "invalidJson": "JSON 解析失败",
+    "invalidYaml": "YAML 解析失败"
+  },
+  "json-xml": {
+    "title": "JSON ↔ XML",
+    "desc": "在 JSON 与 XML 之间互转。",
+    "json": "JSON",
+    "xml": "XML",
+    "invalidJson": "JSON 解析失败",
+    "invalidXml": "XML 解析失败"
+  },
+  "json-toml": {
+    "title": "JSON ↔ TOML",
+    "desc": "在 JSON 与 TOML 之间互转。",
+    "json": "JSON",
+    "toml": "TOML",
+    "invalidJson": "JSON 解析失败",
+    "invalidToml": "TOML 解析失败"
+  },
+  "json-csv": {
+    "title": "JSON ↔ CSV",
+    "desc": "在 JSON 数组与 CSV 之间互转。",
+    "json": "JSON",
+    "csv": "CSV",
+    "invalidJson": "JSON 解析失败（应为对象数组）",
+    "invalidCsv": "CSV 解析失败"
+  },
+  "json-diff": {
+    "title": "JSON Diff",
+    "desc": "比较两个 JSON 文档，显示差异。",
+    "left": "原始",
+    "right": "对比",
+    "summary": "+{{add}} -{{del}} ~{{mod}}",
+    "noDiff": "完全一致",
+    "invalid": "JSON 解析失败"
+  },
+  "html-format": {
+    "title": "HTML 格式化",
+    "desc": "HTML 美化与压缩。",
+    "modeFormat": "格式化",
+    "modeMinify": "压缩",
+    "indent": "缩进",
+    "placeholder": "<html>...</html>"
+  },
+  "css-format": {
+    "title": "CSS 格式化",
+    "desc": "CSS 美化与压缩。",
+    "modeFormat": "格式化",
+    "modeMinify": "压缩",
+    "indent": "缩进",
+    "placeholder": "body { color: red; }"
+  },
+  "js-format": {
+    "title": "JavaScript 格式化",
+    "desc": "JavaScript / TypeScript 代码美化。",
+    "modeFormat": "格式化",
+    "modeMinify": "压缩",
+    "indent": "缩进",
+    "placeholder": "function hi() { return 1; }"
+  },
+  "sql-format": {
+    "title": "SQL 格式化",
+    "desc": "美化 SQL，支持多种方言。",
+    "dialect": "方言",
+    "indent": "缩进",
+    "uppercase": "关键字大写"
+  },
+  "json-to-go": {
+    "title": "JSON → Go Struct",
+    "desc": "根据 JSON 生成 Go 结构体定义。",
+    "rootName": "根类型名",
+    "invalid": "JSON 解析失败"
+  },
+  "case-convert": {
+    "title": "大小写转换",
+    "desc": "在 camelCase、snake_case、kebab-case 等格式间转换。",
+    "cases": {
+      "camel": "camelCase",
+      "pascal": "PascalCase",
+      "snake": "snake_case",
+      "kebab": "kebab-case",
+      "constant": "CONSTANT_CASE",
+      "title": "Title Case",
+      "sentence": "Sentence case",
+      "upper": "UPPER CASE",
+      "lower": "lower case"
+    }
+  },
+  "regex-tester": {
+    "title": "正则表达式测试",
+    "desc": "实时测试正则表达式与匹配项。",
+    "pattern": "正则",
+    "flags": "Flags",
+    "testStr": "测试文本",
+    "matches": "{{count}} 个匹配",
+    "noMatches": "无匹配",
+    "invalid": "无效的正则表达式"
+  },
+  "crontab": {
+    "title": "Crontab 生成",
+    "desc": "生成与解析 cron 表达式，预览未来执行时间。",
+    "expression": "表达式",
+    "fields": {
+      "minute": "分钟",
+      "hour": "小时",
+      "dom": "日",
+      "month": "月",
+      "dow": "周"
+    },
+    "humanize": "含义",
+    "next": "未来 5 次执行",
+    "invalid": "cron 表达式无效"
+  },
+  "color-convert": {
+    "title": "颜色格式转换",
+    "desc": "HEX / RGB / HSL / HSV 之间互转。",
+    "input": "输入颜色",
+    "invalid": "无法解析颜色"
+  },
+  "text-stats": {
+    "title": "文本统计",
+    "desc": "字符、词、行、字节、句子数等统计。",
+    "input": "输入文本",
+    "chars": "字符数（含空格）",
+    "charsNoSpace": "字符数（不含空格）",
+    "words": "词数",
+    "lines": "行数",
+    "sentences": "句子数",
+    "bytes": "字节数（UTF-8）"
+  },
+  "datetime": {
+    "title": "日期时间转换",
+    "desc": "时间戳与多格式日期互转，支持时区。",
+    "now": "现在",
+    "unixSec": "Unix 秒",
+    "unixMs": "Unix 毫秒",
+    "iso": "ISO 8601",
+    "local": "本地时间",
+    "utc": "UTC",
+    "invalid": "无法解析日期"
+  },
+  "curl-builder": {
+    "title": "cURL 构建器",
+    "desc": "可视化构建 cURL 命令。",
+    "method": "方法",
+    "url": "URL",
+    "headers": "请求头",
+    "body": "请求体",
+    "addHeader": "添加 Header",
+    "command": "生成的命令"
+  },
+  "git-cheatsheet": {
+    "title": "Git 速查表",
+    "desc": "常用 Git 命令速查。",
+    "section": {
+      "basics": "基础",
+      "branch": "分支",
+      "remote": "远端",
+      "log": "日志与差异",
+      "undo": "撤销"
+    }
+  },
+  "ssh-cheatsheet": {
+    "title": "SSH 速查表",
+    "desc": "SSH 常用命令。",
+    "section": {
+      "connect": "连接",
+      "key": "密钥",
+      "transfer": "文件传输",
+      "config": "配置"
+    }
+  },
+  "vim-cheatsheet": {
+    "title": "Vim 速查表",
+    "desc": "Vim 常用快捷键。",
+    "section": {
+      "mode": "模式切换",
+      "move": "移动",
+      "edit": "编辑",
+      "search": "查找替换",
+      "file": "文件与窗口"
+    }
+  },
+  "http-status": {
+    "title": "HTTP 状态码",
+    "desc": "HTTP 状态码速查。",
+    "section": {
+      "1xx": "1xx 信息",
+      "2xx": "2xx 成功",
+      "3xx": "3xx 重定向",
+      "4xx": "4xx 客户端错误",
+      "5xx": "5xx 服务端错误"
+    }
+  },
+  "sql-cheatsheet": {
+    "title": "SQL 速查表",
+    "desc": "SQL 常用语法。",
+    "section": {
+      "ddl": "DDL",
+      "dml": "DML",
+      "query": "查询",
+      "join": "JOIN",
+      "agg": "聚合 / 窗口"
+    }
+  },
+  "tar-cheatsheet": {
+    "title": "tar 速查表",
+    "desc": "tar 常用命令。",
+    "section": {
+      "create": "打包",
+      "extract": "解包",
+      "list": "查看",
+      "advanced": "进阶"
+    }
+  }
+}

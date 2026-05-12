@@ -1,0 +1,80 @@
+{
+  "site": {
+    "title": "DevTools Cafe",
+    "tagline": "60+ 免费在线开发者工具",
+    "description": "全部工具在浏览器本地运行，零数据上传服务器。"
+  },
+  "nav": {
+    "home": "首页",
+    "search": "搜索工具…",
+    "openSearch": "打开搜索",
+    "toggleTheme": "切换主题",
+    "toggleLanguage": "切换语言",
+    "github": "GitHub",
+    "theme": {
+      "light": "浅色",
+      "dark": "深色",
+      "system": "跟随系统"
+    }
+  },
+  "a11y": {
+    "skipToContent": "跳到主要内容",
+    "primaryNav": "主导航",
+    "closeDialog": "关闭对话框",
+    "loading": "加载中…",
+    "copied": "已复制到剪贴板",
+    "copyEmpty": "暂无可复制内容"
+  },
+  "categories": {
+    "security": "安全工具",
+    "image": "图像工具",
+    "format": "格式转换",
+    "text": "文本工具",
+    "cheatsheet": "速查表"
+  },
+  "categoryDesc": {
+    "security": "加密、哈希、JWT、Base64 等安全相关工具",
+    "image": "二维码、图片压缩、Favicon 等图像处理",
+    "format": "JSON、YAML、XML、CSV 等格式互转与格式化",
+    "text": "正则、大小写、编码、统计等文本处理",
+    "cheatsheet": "Git、Linux、Docker 等常用命令速查"
+  },
+  "home": {
+    "heroTitle": "本地运行的开发者工具集",
+    "heroSubtitle": "无需登录、无需上传，所有工具直接在浏览器里运行。",
+    "comingSoon": "敬请期待",
+    "localOnly": "100% 本地运行",
+    "statsLabel": "共 {{count}} 个本地优先的工具",
+    "toolCount": "{{count}} 个工具"
+  },
+  "actions": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "example": "示例",
+    "download": "下载",
+    "generate": "生成",
+    "verify": "校验",
+    "format": "格式化",
+    "minify": "压缩",
+    "encode": "编码",
+    "decode": "解码"
+  },
+  "common": {
+    "input": "输入",
+    "output": "输出",
+    "options": "选项",
+    "result": "结果",
+    "error": "错误",
+    "empty": "无内容",
+    "backToHome": "返回首页",
+    "backToHomeShort": "首页",
+    "backToCategory": "返回 {{name}}",
+    "notFound": "页面未找到",
+    "notFoundDesc": "你访问的页面不存在或尚未实现。"
+  },
+  "footer": {
+    "tagline": "本地运行的开发者工具站，向 devtoolcafe.com 致敬。",
+    "year": "© {{year}} DevTools Cafe"
+  }
+}
