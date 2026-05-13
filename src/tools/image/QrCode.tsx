@@ -114,11 +114,13 @@ export default function QrCodeTool() {
           {t('qr-code.downloadPng', { ns: 'tools' })}
         </Button>
       </div>
-      {/* Cap the canvas display width so a 1024px QR doesn't overflow the */}
-      {/* grid and squash the controls. The bitmap stays at the full size  */}
-      {/* requested, so downloaded PNGs remain crisp.                      */}
-      <div className="flex max-w-[420px] items-center justify-center rounded-xl border border-border bg-white p-4">
-        <canvas ref={canvasRef} className="h-auto max-w-full" />
+      {/* The canvas's HTML width/height attributes control the bitmap, but */}
+      {/* CSS only knows the values it's explicitly given — so `h-auto`     */}
+      {/* alone falls back to the bitmap height and stretches the display. */}
+      {/* `aspect-square` forces the rendered box to 1:1 regardless of the */}
+      {/* requested bitmap size; downloads still use the original bitmap.  */}
+      <div className="flex w-full max-w-[420px] items-center justify-center rounded-xl border border-border bg-white p-4">
+        <canvas ref={canvasRef} className="block aspect-square w-full" />
       </div>
     </div>
   );
