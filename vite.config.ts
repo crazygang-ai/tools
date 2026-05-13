@@ -4,7 +4,13 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'node:path';
 
+// Deployed to GitHub Pages project site at https://crazygang-ai.github.io/tools/
+// so all asset URLs and the PWA scope must live under /tools/. Override with
+// VITE_BASE=/ when serving from a custom domain root.
+const base = process.env.VITE_BASE ?? '/tools/';
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     VitePWA({
@@ -40,10 +46,11 @@ export default defineConfig({
         theme_color: '#0b0b0d',
         background_color: '#0b0b0d',
         display: 'standalone',
-        start_url: '/',
+        start_url: base,
+        scope: base,
         icons: [
-          { src: '/pwa-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/pwa-512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'pwa-192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'pwa-512.png', sizes: '512x512', type: 'image/png' },
         ],
       },
     }),
