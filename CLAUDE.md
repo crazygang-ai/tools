@@ -31,7 +31,7 @@ Vitest config lives inside `vite.config.ts` (jsdom environment, globals enabled,
 
 ## Architecture
 
-This is a **client-only PWA** of 23 in-browser developer tools. There is no backend — everything (hashing, encryption, formatting, image conversion) runs in the user's browser. Keep it that way: no telemetry, no remote calls.
+This is a **client-only PWA** of in-browser developer tools. There is no backend — everything (hashing, encryption, formatting, image conversion, code rendering) runs in the user's browser. Keep it that way: no telemetry, no remote calls.
 
 ### Single source of truth: the tool registry
 
@@ -51,7 +51,7 @@ This is a **client-only PWA** of 23 in-browser developer tools. There is no back
 
 ### Pure-function libs split out for testing
 
-Tools that contain non-trivial logic split it into a sibling `*.lib.ts` file (e.g. `security/base64.lib.ts`, `format/jsonDiff.lib.ts`, `format/jsonToGo.lib.ts`, `security/jwt.lib.ts`, `security/password.lib.ts`). The React component imports from the lib; tests in `tests/tools/*.test.ts` import the lib directly. **When adding non-trivial logic to a new tool, follow this split** — the tests must not need to render React.
+Tools that contain non-trivial logic split it into a sibling `*.lib.ts` file (examples: `security/base64.lib.ts`, `security/password.lib.ts`, `format/jsonDiff.lib.ts`, `format/jsonToGo.lib.ts`, `text/case.lib.ts`, `text/color.lib.ts`, `text/cron.lib.ts`, `text/asciiArt.lib.ts`, `image/codeSnapshot.lib.ts`). The React component imports from the lib; tests in `tests/tools/*.test.ts` import the lib directly. **When adding non-trivial logic to a new tool, follow this split** — the tests must not need to render React.
 
 ### Shared components for repeated patterns
 
@@ -65,7 +65,9 @@ Tools that contain non-trivial logic split it into a sibling `*.lib.ts` file (e.
 - **i18n** — `react-i18next` with two namespaces: `common` and `tools`. Locales live in `src/i18n/locales/{zh,en}/{common,tools}.json`. Detection is `localStorage` (key `tools.lang`) → browser. Tool strings are `tools.<slug>.title / desc / ...`.
 - **Theme** — `src/lib/theme.tsx` (`ThemeProvider` wrapping the whole app in `main.tsx`). Three modes: `light` / `dark` / `system`. The `system` choice removes the localStorage key (`tools.theme`) and listens to `prefers-color-scheme` changes; explicit choices write the key. Tailwind `darkMode: 'class'` is toggled on `<html>`.
 - **Local state** — `src/lib/useLocalState.ts` is a tiny `useState` wrapper that persists each value to `localStorage` under the key `tools.state.<key>`. Use it for any tool input the user might want preserved across reloads (regex pattern, color input, cron expression, etc.). API: `const [v, setV] = useLocalState('regex.pattern', '')`. There's no codec / debounce / size cap — `JSON.stringify` + localStorage handle everything, and writes silently degrade to in-memory if storage is unavailable or quota is hit. The project is local-only, so we deliberately do **not** expose tool state via URL.
-- **PWA** — `vite-plugin-pwa` with `registerType: 'autoUpdate'` (configured in `vite.config.ts`). Service Worker only runs in production builds; verify with `pnpm preview`, not `pnpm dev`.
+- **Clipboard helpers** — `src/lib/copy.ts` exports `copyText(string)` (text via `navigator.clipboard.writeText` with a legacy `execCommand` fallback), `downloadBlob(blob, filename)`, and `copyBlob(blob)` (image / arbitrary MIME via `ClipboardItem`). `copyBlob` returns `false` when the browser refuses (older Safari, insecure context, Firefox without the pref) so callers can fall back to `downloadBlob` + a toast — never silently fail.
+- **PWA** — `vite-plugin-pwa` with `registerType: 'autoUpdate'` (configured in `vite.config.ts`). Service Worker only runs in production builds; verify with `pnpm preview`, not `pnpm dev`. Heavy lazy-loaded chunks (shiki WASM, language grammars, themes, figlet fonts, etc.) are kept **out of the precache** via `workbox.globIgnores` and served by `workbox.runtimeCaching` (`CacheFirst`) — first-install size stays under ~1 MB while still caching them once visited. When you add a new big lazy dependency, update `globIgnores` so it doesn't bloat the precache.
+- **Image export** — when a tool needs to rasterize DOM to PNG, use `html-to-image`'s `toPng(node, { pixelRatio })` plus `getFontEmbedCSS(node)` to inline any web fonts. Bundled web fonts come from `@fontsource/<family>/latin-400.css?inline` (CSS as a string injected into a `<style>` we own); after attaching, `await document.fonts.ready` before the first capture or the PNG falls back to the system stack. See `src/tools/image/CodeSnapshot.tsx` for the canonical pattern.
 
 ## Adding a new tool
 

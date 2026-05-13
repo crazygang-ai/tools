@@ -7,10 +7,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies & build output
 node_modules
 dist
 dist-ssr
 *.local
+
+# Test coverage / caches
+coverage
+.nyc_output
+.vite
+.cache
+.eslintcache
+.tsbuildinfo
+*.tsbuildinfo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +37,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# OS
+Thumbs.db
+
+# Claude Code local data (project-scoped state, not for sharing)
+.claude/local
