@@ -81,7 +81,7 @@ export default function QrCodeTool() {
               : t('qr-code.generic', { ns: 'tools', message: error.message })}
           </div>
         )}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-3">
           <div>
             <FieldHeader
               label={`${t('qr-code.size', { ns: 'tools' })} (${size}px)`}
@@ -90,7 +90,7 @@ export default function QrCodeTool() {
               type="range"
               min={64}
               max={1024}
-              step={32}
+              step={8}
               value={size}
               onChange={(e) => setSize(parseInt(e.target.value, 10))}
               className="h-9 w-full"
@@ -114,8 +114,11 @@ export default function QrCodeTool() {
           {t('qr-code.downloadPng', { ns: 'tools' })}
         </Button>
       </div>
-      <div className="flex items-center justify-center rounded-xl border border-border bg-white p-4">
-        <canvas ref={canvasRef} />
+      {/* Cap the canvas display width so a 1024px QR doesn't overflow the */}
+      {/* grid and squash the controls. The bitmap stays at the full size  */}
+      {/* requested, so downloaded PNGs remain crisp.                      */}
+      <div className="flex max-w-[420px] items-center justify-center rounded-xl border border-border bg-white p-4">
+        <canvas ref={canvasRef} className="h-auto max-w-full" />
       </div>
     </div>
   );
