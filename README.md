@@ -2,6 +2,8 @@
 
 浏览器端开发者工具集，不上传任何数据。
 
+![Tools 首页截图](docs/screenshot.png)
+
 技术栈：**Vite + React 19 + TypeScript + Tailwind CSS + react-router-dom + i18next + cmdk + vite-plugin-pwa**。
 
 ## 快速开始
@@ -12,14 +14,14 @@
 
 | 工具 | 版本要求 | 装法 |
 |---|---|---|
-| **Node.js** | ≥ 20 | 去 [nodejs.org](https://nodejs.org/) 下 LTS 安装包；或者 macOS 用 Homebrew：`brew install node` |
-| **pnpm** | ≥ 8 | Node 装完后跑 `npm install -g pnpm`（一次就够，全局安装） |
+| **Node.js** | ≥ 22 (LTS) | 去 [nodejs.org](https://nodejs.org/) 下 LTS 安装包；或者 macOS 用 Homebrew：`brew install node` |
+| **pnpm** | ≥ 10 | Node 装完后跑 `npm install -g pnpm`（一次就够，全局安装） |
 
 确认装好：
 
 ```bash
-node -v     # 应输出 v20.x.x 或更新
-pnpm -v     # 应输出 8.x.x 或更新
+node -v     # 应输出 v22.x.x 或更新
+pnpm -v     # 应输出 10.x.x 或更新
 ```
 
 > **为什么用 pnpm 而不是 npm/yarn？** 项目用 `pnpm-lock.yaml` 锁定依赖版本，用其他包管理器装会得到不同的依赖树，可能跑不起来。

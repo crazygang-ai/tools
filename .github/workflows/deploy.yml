@@ -31,6 +31,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
+          # README declares Node >= 22 (Active LTS) as the minimum supported
+          # by contributors. CI runs on the latest LTS to surface ecosystem
+          # incompatibilities early — bump both together if a dep drops the
+          # current floor.
           node-version: 24
 
       - name: Enable pnpm via corepack
