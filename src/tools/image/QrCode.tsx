@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import QRCode from 'qrcode';
 import { Button } from '@/components/ui/Button';
-import { Input, Textarea } from '@/components/ui/Input';
+import { Textarea } from '@/components/ui/Input';
 import { FieldHeader } from '@/components/ui/FieldHeader';
 import { downloadBlob } from '@/lib/copy';
 
@@ -83,14 +83,17 @@ export default function QrCodeTool() {
         )}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <FieldHeader label={t('qr-code.size', { ns: 'tools' })} />
-            <Input
-              type="number"
+            <FieldHeader
+              label={`${t('qr-code.size', { ns: 'tools' })} (${size}px)`}
+            />
+            <input
+              type="range"
               min={64}
               max={1024}
               step={32}
               value={size}
-              onChange={(e) => setSize(parseInt(e.target.value || '256', 10))}
+              onChange={(e) => setSize(parseInt(e.target.value, 10))}
+              className="h-9 w-full"
             />
           </div>
           <div>
