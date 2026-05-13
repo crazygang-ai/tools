@@ -49,7 +49,9 @@
     "content": "Content",
     "size": "Size",
     "errorLevel": "Error correction",
-    "downloadPng": "Download PNG"
+    "downloadPng": "Download PNG",
+    "tooBig": "Content too long ({{length}} characters) for error correction level {{level}}. Lower the correction level or shorten the content.",
+    "generic": "Failed to generate: {{message}}"
   },
   "favicon": {
     "title": "Favicon Generator",

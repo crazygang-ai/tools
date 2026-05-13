@@ -8,11 +8,19 @@ import { downloadBlob } from '@/lib/copy';
 
 type Level = 'L' | 'M' | 'Q' | 'H';
 
+// Discriminated union keeps i18n.t() out of the encode useEffect — we only
+// store the structured error context here and translate it at render time.
+type ErrorState =
+  | null
+  | { kind: 'tooBig'; length: number; level: Level }
+  | { kind: 'generic'; message: string };
+
 export default function QrCodeTool() {
   const { t } = useTranslation();
   const [content, setContent] = useState('https://example.com');
   const [size, setSize] = useState(256);
   const [level, setLevel] = useState<Level>('M');
+  const [error, setError] = useState<ErrorState>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -27,15 +35,24 @@ export default function QrCodeTool() {
         dark: '#0b0b0d',
         light: '#ffffff',
       },
-    }).catch(() => {
-      const ctx = c.getContext('2d');
-      if (ctx) ctx.clearRect(0, 0, c.width, c.height);
-    });
+    })
+      .then(() => setError(null))
+      .catch((e: unknown) => {
+        const ctx = c.getContext('2d');
+        if (ctx) ctx.clearRect(0, 0, c.width, c.height);
+        const message = e instanceof Error ? e.message : String(e);
+        // qrcode lib message: "The amount of data is too big to be stored in a QR Code"
+        if (/too big|too large/i.test(message)) {
+          setError({ kind: 'tooBig', length: content.length, level });
+        } else {
+          setError({ kind: 'generic', message });
+        }
+      });
   }, [content, size, level]);
 
   function download() {
     const c = canvasRef.current;
-    if (!c) return;
+    if (!c || error) return;
     c.toBlob((b) => {
       if (b) downloadBlob(b, 'qrcode.png');
     });
@@ -53,6 +70,17 @@ export default function QrCodeTool() {
             placeholder="https://example.com"
           />
         </div>
+        {error && (
+          <div className="rounded-lg border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
+            {error.kind === 'tooBig'
+              ? t('qr-code.tooBig', {
+                  ns: 'tools',
+                  length: error.length,
+                  level: error.level,
+                })
+              : t('qr-code.generic', { ns: 'tools', message: error.message })}
+          </div>
+        )}
         <div className="grid grid-cols-2 gap-3">
           <div>
             <FieldHeader label={t('qr-code.size', { ns: 'tools' })} />
@@ -79,7 +107,9 @@ export default function QrCodeTool() {
             </select>
           </div>
         </div>
-        <Button onClick={download}>{t('qr-code.downloadPng', { ns: 'tools' })}</Button>
+        <Button onClick={download} disabled={!!error}>
+          {t('qr-code.downloadPng', { ns: 'tools' })}
+        </Button>
       </div>
       <div className="flex items-center justify-center rounded-xl border border-border bg-white p-4">
         <canvas ref={canvasRef} />

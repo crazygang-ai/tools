@@ -49,7 +49,9 @@
     "content": "内容",
     "size": "尺寸",
     "errorLevel": "纠错等级",
-    "downloadPng": "下载 PNG"
+    "downloadPng": "下载 PNG",
+    "tooBig": "内容过长（{{length}} 字符），超出 {{level}} 纠错等级的容量上限。可降低纠错等级或减少内容。",
+    "generic": "生成失败：{{message}}"
   },
   "favicon": {
     "title": "Favicon 生成",
