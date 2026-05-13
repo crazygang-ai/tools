@@ -67,6 +67,44 @@
     "original": "原图",
     "converted": "转换后"
   },
+  "code-snapshot": {
+    "title": "代码截图",
+    "desc": "把代码片段渲染为带主题、背景与窗口装饰的 PNG 图片，本地生成。",
+    "code": "代码",
+    "language": "语言",
+    "theme": "主题",
+    "background": "背景",
+    "padding": "画布留白",
+    "font": "字体",
+    "shadow": "阴影",
+    "shadows": {
+      "none": "无",
+      "soft": "弱",
+      "medium": "中",
+      "strong": "强"
+    },
+    "cornerRadius": "圆角",
+    "windowStyle": "窗口栏",
+    "windowStyles": {
+      "mac": "macOS",
+      "windows": "Windows",
+      "none": "无"
+    },
+    "windowBar": "窗口栏",
+    "lineNumbers": "行号",
+    "filename": "文件名",
+    "filenamePlaceholder": "App.tsx（可留空）",
+    "highlightLines": "高亮行",
+    "highlightPlaceholder": "如 1,3-5,8",
+    "preview": "预览",
+    "pixelRatio": "倍率",
+    "exportPng": "导出 PNG",
+    "exporting": "导出中...",
+    "copy": "复制图片",
+    "copying": "复制中...",
+    "copied": "已复制到剪贴板",
+    "copyFallback": "浏览器不支持复制图片，已改为下载"
+  },
   "json-format": {
     "title": "JSON 格式化",
     "desc": "格式化、压缩、校验 JSON。",

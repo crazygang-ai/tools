@@ -24,6 +24,7 @@ import {
   Lightbulb,
   HardDrive,
   Type,
+  Camera,
 } from 'lucide-react';
 import type { ToolMeta } from '@/types';
 
@@ -40,6 +41,7 @@ const UrlEncode = lazy(() => import('@/tools/security/UrlEncode'));
 const QrCodeTool = lazy(() => import('@/tools/image/QrCode'));
 const Favicon = lazy(() => import('@/tools/image/Favicon'));
 const ImageConvert = lazy(() => import('@/tools/image/ImageConvert'));
+const CodeSnapshot = lazy(() => import('@/tools/image/CodeSnapshot'));
 
 // Format
 const JsonFormat = lazy(() => import('@/tools/format/JsonFormat'));
@@ -116,6 +118,14 @@ export const TOOLS: ToolMeta[] = [
     icon: ImageIcon,
     component: ImageConvert,
     keywords: ['image', 'convert', 'png', 'jpg', 'webp'],
+  },
+  {
+    slug: 'code-snapshot',
+    category: 'image',
+    i18nKey: 'code-snapshot',
+    icon: Camera,
+    component: CodeSnapshot,
+    keywords: ['code', 'snapshot', 'screenshot', 'carbon', 'syntax', 'highlight', '代码截图'],
   },
 
   // ========== Format (4) ==========

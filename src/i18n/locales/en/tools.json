@@ -67,6 +67,44 @@
     "original": "Original",
     "converted": "Converted"
   },
+  "code-snapshot": {
+    "title": "Code Snapshot",
+    "desc": "Render a code snippet as a themed PNG with background and window chrome. Fully local.",
+    "code": "Code",
+    "language": "Language",
+    "theme": "Theme",
+    "background": "Background",
+    "padding": "Canvas padding",
+    "font": "Font",
+    "shadow": "Shadow",
+    "shadows": {
+      "none": "None",
+      "soft": "Soft",
+      "medium": "Medium",
+      "strong": "Strong"
+    },
+    "cornerRadius": "Corner radius",
+    "windowStyle": "Window bar",
+    "windowStyles": {
+      "mac": "macOS",
+      "windows": "Windows",
+      "none": "None"
+    },
+    "windowBar": "Window bar",
+    "lineNumbers": "Line numbers",
+    "filename": "Filename",
+    "filenamePlaceholder": "App.tsx (optional)",
+    "highlightLines": "Highlight lines",
+    "highlightPlaceholder": "e.g. 1,3-5,8",
+    "preview": "Preview",
+    "pixelRatio": "Scale",
+    "exportPng": "Export PNG",
+    "exporting": "Exporting...",
+    "copy": "Copy image",
+    "copying": "Copying...",
+    "copied": "Copied to clipboard",
+    "copyFallback": "Clipboard not supported, downloaded instead"
+  },
   "json-format": {
     "title": "JSON Formatter",
     "desc": "Format, minify and validate JSON.",
