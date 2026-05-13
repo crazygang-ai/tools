@@ -3,6 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    # Doc-only changes don't affect the built site, so skip the deploy.
+    # workflow_dispatch below still lets us re-run manually if needed.
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - 'LICENSE'
+      - '.gitignore'
+      - '.editorconfig'
   workflow_dispatch:
 
 # Opt every JavaScript-based action into the Node 24 runtime now, instead of
