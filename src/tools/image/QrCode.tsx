@@ -15,6 +15,25 @@ type ErrorState =
   | { kind: 'tooBig'; length: number; level: Level }
   | { kind: 'generic'; message: string };
 
+// Preview bitmap is fixed: the slider only controls the *download* size, so
+// the on-screen canvas can never blow up and overflow the layout. 512 is
+// plenty for a CSS box that's at most ~420px wide on retina.
+const PREVIEW_BITMAP = 512;
+
+const QR_OPTIONS = {
+  margin: 2,
+  color: { dark: '#0b0b0d', light: '#ffffff' },
+} as const;
+
+function classifyError(e: unknown, content: string, level: Level): ErrorState {
+  const message = e instanceof Error ? e.message : String(e);
+  // qrcode lib message: "The amount of data is too big to be stored in a QR Code"
+  if (/too big|too large/i.test(message)) {
+    return { kind: 'tooBig', length: content.length, level };
+  }
+  return { kind: 'generic', message };
+}
+
 export default function QrCodeTool() {
   const { t } = useTranslation();
   const [content, setContent] = useState('https://example.com');
@@ -23,37 +42,41 @@ export default function QrCodeTool() {
   const [error, setError] = useState<ErrorState>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  // Preview render — independent of `size`. The encode itself only fails on
+  // content/level (capacity), never on width, so preview success implies the
+  // download will succeed too.
   useEffect(() => {
     const c = canvasRef.current;
     if (!c) return;
     const value = content || ' ';
     QRCode.toCanvas(c, value, {
+      ...QR_OPTIONS,
       errorCorrectionLevel: level,
-      width: size,
-      margin: 2,
-      color: {
-        dark: '#0b0b0d',
-        light: '#ffffff',
-      },
+      width: PREVIEW_BITMAP,
     })
       .then(() => setError(null))
       .catch((e: unknown) => {
         const ctx = c.getContext('2d');
         if (ctx) ctx.clearRect(0, 0, c.width, c.height);
-        const message = e instanceof Error ? e.message : String(e);
-        // qrcode lib message: "The amount of data is too big to be stored in a QR Code"
-        if (/too big|too large/i.test(message)) {
-          setError({ kind: 'tooBig', length: content.length, level });
-        } else {
-          setError({ kind: 'generic', message });
-        }
+        setError(classifyError(e, content, level));
       });
-  }, [content, size, level]);
+  }, [content, level]);
 
-  function download() {
-    const c = canvasRef.current;
-    if (!c || error) return;
-    c.toBlob((b) => {
+  async function download() {
+    if (error) return;
+    const value = content || ' ';
+    const off = document.createElement('canvas');
+    try {
+      await QRCode.toCanvas(off, value, {
+        ...QR_OPTIONS,
+        errorCorrectionLevel: level,
+        width: size,
+      });
+    } catch (e) {
+      setError(classifyError(e, content, level));
+      return;
+    }
+    off.toBlob((b) => {
       if (b) downloadBlob(b, 'qrcode.png');
     });
   }
@@ -114,14 +137,10 @@ export default function QrCodeTool() {
           {t('qr-code.downloadPng', { ns: 'tools' })}
         </Button>
       </div>
-      {/* The canvas's HTML width/height attributes control the bitmap, but */}
-      {/* CSS only knows the values it's explicitly given — so `h-auto`     */}
-      {/* alone falls back to the bitmap height and stretches the display. */}
-      {/* `aspect-square` forces the rendered box to 1:1 regardless of the */}
-      {/* requested bitmap size; downloads still use the original bitmap.  */}
-      {/* The grid column is `minmax(0, 420px)` and this item adds         */}
-      {/* `min-w-0` so a 1024-bitmap canvas can't blow out the layout —    */}
-      {/* otherwise grid items default to `min-width: auto` (= intrinsic). */}
+      {/* Preview bitmap is a fixed PREVIEW_BITMAP px and the layout column   */}
+      {/* is `minmax(0, 420px)`; the slider only changes the *downloaded*    */}
+      {/* PNG resolution, so the preview can never push the column wider     */}
+      {/* than 420px regardless of the requested size.                       */}
       <div className="flex w-full min-w-0 items-center justify-center rounded-xl border border-border bg-white p-4">
         <canvas ref={canvasRef} className="block aspect-square w-full" />
       </div>
