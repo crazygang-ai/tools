@@ -47,7 +47,7 @@
     "title": "QR Code Generator",
     "desc": "Turn any text or URL into a downloadable QR code.",
     "content": "Content",
-    "size": "Download size",
+    "size": "Size",
     "errorLevel": "Error correction",
     "downloadPng": "Download PNG",
     "tooBig": "Content too long ({{length}} characters) for error correction level {{level}}. Lower the correction level or shorten the content.",

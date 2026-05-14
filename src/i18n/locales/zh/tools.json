@@ -47,7 +47,7 @@
     "title": "二维码生成",
     "desc": "把文本或链接生成可下载的二维码。",
     "content": "内容",
-    "size": "下载尺寸",
+    "size": "尺寸",
     "errorLevel": "纠错等级",
     "downloadPng": "下载 PNG",
     "tooBig": "内容过长（{{length}} 字符），超出 {{level}} 纠错等级的容量上限。可降低纠错等级或减少内容。",

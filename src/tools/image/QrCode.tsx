@@ -37,12 +37,16 @@ export default function QrCodeTool() {
       },
     })
       .then(() => {
-        // qrcode.toCanvas writes `style.width/height = '<size>px'` on the
-        // canvas (so callers can drop it straight into the DOM at bitmap
-        // resolution). We don't want that — clear it so our Tailwind sizing
-        // controls the on-screen box, not the bitmap.
-        c.style.width = '';
-        c.style.height = '';
+        // qrcode.toCanvas overwrites canvas.style.width/height with the
+        // bitmap pixel size (e.g. '1024px'), which both blows up the layout
+        // and uncouples the on-screen size from our intent. Replace those
+        // inline styles ourselves with the desired *display* size — capped
+        // at 320 so the column never overflows. Below 320 the preview
+        // scales with the slider (WYSIWYG); above 320 the preview stays at
+        // 320 and only the bitmap (download size) keeps growing.
+        const display = Math.min(size, 320);
+        c.style.width = `${display}px`;
+        c.style.height = `${display}px`;
         setError(null);
       })
       .catch((e: unknown) => {
@@ -122,17 +126,14 @@ export default function QrCodeTool() {
           {t('qr-code.downloadPng', { ns: 'tools' })}
         </Button>
       </div>
-      {/* Preview scales with the slider but caps at 320px (column width on  */}
-      {/* narrower viewports). `aspect-square` keeps it square; `w-full +    */}
-      {/* max-w-[320px]` does the cap. NOTE: qrcode.toCanvas writes inline   */}
-      {/* `style.width/height = '<bitmap>px'` on the canvas after we render, */}
-      {/* which would override Tailwind — we clear those inline styles in   */}
-      {/* the useEffect's .then() so the CSS class takes effect.             */}
+      {/* The canvas's display size is set imperatively in the useEffect    */}
+      {/* (after qrcode.toCanvas, which would otherwise overwrite our       */}
+      {/* inline styles with the bitmap size). The wrapper just centers it  */}
+      {/* and provides the white background; it doesn't constrain the       */}
+      {/* canvas size — the useEffect does. `min-w-0` lets the grid item    */}
+      {/* shrink below its intrinsic content width.                         */}
       <div className="flex w-full min-w-0 items-center justify-center rounded-xl border border-border bg-white p-4">
-        <canvas
-          ref={canvasRef}
-          className="block aspect-square w-full max-w-[320px]"
-        />
+        <canvas ref={canvasRef} className="block max-w-full" />
       </div>
     </div>
   );
