@@ -119,11 +119,16 @@ export default function QrCodeTool() {
       {/* PNG matches the slider value (the helper text under the slider     */}
       {/* makes that contract explicit). `min-w-0` lets the grid item shrink  */}
       {/* below its intrinsic content width.                                  */}
+      {/* Width AND height are both inline-styled: on a <canvas>, the HTML   */}
+      {/* width/height attributes (= bitmap size, e.g. 1024) define the      */}
+      {/* element's intrinsic aspect ratio and override CSS `aspect-ratio`,  */}
+      {/* so a CSS-only width cap leaves the height at 1024 and renders a    */}
+      {/* tall strip. Setting both dimensions explicitly forces the box.     */}
       <div className="flex w-full min-w-0 items-center justify-center rounded-xl border border-border bg-white p-4">
         <canvas
           ref={canvasRef}
-          className="block aspect-square max-w-full"
-          style={{ width: Math.min(size, 320) }}
+          className="block max-w-full"
+          style={{ width: Math.min(size, 320), height: Math.min(size, 320) }}
         />
       </div>
     </div>
