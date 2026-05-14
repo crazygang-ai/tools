@@ -36,7 +36,15 @@ export default function QrCodeTool() {
         light: '#ffffff',
       },
     })
-      .then(() => setError(null))
+      .then(() => {
+        // qrcode.toCanvas writes `style.width/height = '<size>px'` on the
+        // canvas (so callers can drop it straight into the DOM at bitmap
+        // resolution). We don't want that — clear it so our Tailwind sizing
+        // controls the on-screen box, not the bitmap.
+        c.style.width = '';
+        c.style.height = '';
+        setError(null);
+      })
       .catch((e: unknown) => {
         const ctx = c.getContext('2d');
         if (ctx) ctx.clearRect(0, 0, c.width, c.height);
@@ -114,21 +122,16 @@ export default function QrCodeTool() {
           {t('qr-code.downloadPng', { ns: 'tools' })}
         </Button>
       </div>
-      {/* Preview scales with the slider but caps at 320px so it never        */}
-      {/* overflows the column. Bitmap is still `size`, so the downloaded     */}
-      {/* PNG matches the slider value (the helper text under the slider     */}
-      {/* makes that contract explicit). `min-w-0` lets the grid item shrink  */}
-      {/* below its intrinsic content width.                                  */}
-      {/* Width AND height are both inline-styled: on a <canvas>, the HTML   */}
-      {/* width/height attributes (= bitmap size, e.g. 1024) define the      */}
-      {/* element's intrinsic aspect ratio and override CSS `aspect-ratio`,  */}
-      {/* so a CSS-only width cap leaves the height at 1024 and renders a    */}
-      {/* tall strip. Setting both dimensions explicitly forces the box.     */}
+      {/* Preview scales with the slider but caps at 320px (column width on  */}
+      {/* narrower viewports). `aspect-square` keeps it square; `w-full +    */}
+      {/* max-w-[320px]` does the cap. NOTE: qrcode.toCanvas writes inline   */}
+      {/* `style.width/height = '<bitmap>px'` on the canvas after we render, */}
+      {/* which would override Tailwind — we clear those inline styles in   */}
+      {/* the useEffect's .then() so the CSS class takes effect.             */}
       <div className="flex w-full min-w-0 items-center justify-center rounded-xl border border-border bg-white p-4">
         <canvas
           ref={canvasRef}
-          className="block max-w-full"
-          style={{ width: Math.min(size, 320), height: Math.min(size, 320) }}
+          className="block aspect-square w-full max-w-[320px]"
         />
       </div>
     </div>
