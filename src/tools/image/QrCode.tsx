@@ -59,7 +59,7 @@ export default function QrCodeTool() {
   }
 
   return (
-    <div className="grid gap-6 md:grid-cols-[1fr,auto]">
+    <div className="grid gap-6 md:grid-cols-[1fr,minmax(0,420px)]">
       <div className="space-y-3">
         <div>
           <FieldHeader label={t('qr-code.content', { ns: 'tools' })} />
@@ -119,7 +119,10 @@ export default function QrCodeTool() {
       {/* alone falls back to the bitmap height and stretches the display. */}
       {/* `aspect-square` forces the rendered box to 1:1 regardless of the */}
       {/* requested bitmap size; downloads still use the original bitmap.  */}
-      <div className="flex w-full max-w-[420px] items-center justify-center rounded-xl border border-border bg-white p-4">
+      {/* The grid column is `minmax(0, 420px)` and this item adds         */}
+      {/* `min-w-0` so a 1024-bitmap canvas can't blow out the layout —    */}
+      {/* otherwise grid items default to `min-width: auto` (= intrinsic). */}
+      <div className="flex w-full min-w-0 items-center justify-center rounded-xl border border-border bg-white p-4">
         <canvas ref={canvasRef} className="block aspect-square w-full" />
       </div>
     </div>
