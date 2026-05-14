@@ -114,15 +114,16 @@ export default function QrCodeTool() {
           {t('qr-code.downloadPng', { ns: 'tools' })}
         </Button>
       </div>
-      {/* Preview scales with the slider, but at 1/4 of the bitmap so even   */}
-      {/* size=1024 only paints a 256px box on screen — well within the      */}
-      {/* column. Bitmap is still `size`, so the downloaded PNG is full-res. */}
-      {/* `min-w-0` lets the grid item shrink below its intrinsic width.     */}
+      {/* Preview scales with the slider but caps at 320px so it never        */}
+      {/* overflows the column. Bitmap is still `size`, so the downloaded     */}
+      {/* PNG matches the slider value (the helper text under the slider     */}
+      {/* makes that contract explicit). `min-w-0` lets the grid item shrink  */}
+      {/* below its intrinsic content width.                                  */}
       <div className="flex w-full min-w-0 items-center justify-center rounded-xl border border-border bg-white p-4">
         <canvas
           ref={canvasRef}
           className="block aspect-square max-w-full"
-          style={{ width: size / 4 }}
+          style={{ width: Math.min(size, 320) }}
         />
       </div>
     </div>
